@@ -1,12 +1,20 @@
-let contentText = document.getElementsByTagName('body');
-console.log(contentText[0].innerHTML);
-// for (children in contentText){
-//     console.log(contentText.textContent);
-    // this doesn't work for now
-//}
+const printChildren = (child) => {
+    if (child.firstChild === null) {
+        console.log(child);
+    } else{
+        for (grandBaby in child.childNodes){
+            printChildren(grandBaby)
+        }
+    }
 
-// const printChildren = (child) => {
-//     if (child.firstChild === null) {
-//         console.log(child.);
-//     }
-//}
+}
+
+let contentText = document.getElementsByTagName('body');
+//console.log(contentText[0].children);
+contentText[0].childNodes.forEach(n => {
+    printChildren(n)
+})
+// for (let i = 0; i < contentText.children.length; i++) {
+//     console.log(contentText.children[i].tagName);
+//   }
+
